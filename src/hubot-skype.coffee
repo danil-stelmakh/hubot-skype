@@ -39,9 +39,9 @@ class SkypeAdapter extends Adapter
         console.log('SKYPE ADAPTER LOG: ', msg.message)
         return
 
-      user = adapter.robot.brain.userForName(msg.user)
+      user = adapter.robot.brain.userForId msg.user
       if !user
-        user = adapter.robot.brain.userForId new Date().getTime().toString()
+        user = adapter.robot.brain.userForId msg.user
         user.name = msg.user
 
       user.room = msg.room
